@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yonyou.userdemo.busilog.repository.LogDtoMapper">
+    <resultMap id="BaseResultMap" type="com.yonyou.userdemo.busilog.entity.LogDto">
+        <id column="id" property="id" />
+        <result column="client_ip" property="clientIp" />
+        <result column="busi_code" property="busiCode" />
+        <result column="busi_name" property="busiName" />
+        <result column="log_content" property="busiContent" />
+        <result column="log_date" property="logdate" />
+    </resultMap>
+
+
+    <insert id="save" parameterType="com.yonyou.userdemo.busilog.entity.LogDto">
+        insert into busilog(id, client_ip, busi_code, busi_name, log_content, log_date)
+        values (#{id}, #{clientIp}, #{busiCode}, #{busiName}, #{busiContent}, #{logdate})
+    </insert>
+
+</mapper>

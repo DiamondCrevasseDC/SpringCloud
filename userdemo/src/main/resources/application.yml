@@ -1,0 +1,27 @@
+---
+spring:
+  datasource:
+    name: mydb
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+  application:
+    name: userdemo #注册的id
+mybatis:
+  mapperLocations: classpath*:mybatis/*Mapper.xml
+
+server:
+  port: 8762
+  servlet:
+    context-path: /
+  tomcat:
+    max-threads: 800
+    uri-encoding: UTF-8
+eureka:
+  client:
+    service-url:
+      default-zone: http://127.0.0.1:8761/eureka/
+
