@@ -3,13 +3,14 @@ spring:
   datasource:
     name: mydb
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=UTC
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
 
   application:
     name: userdemo #注册的id
+
 mybatis:
   mapperLocations: classpath*:mybatis/*Mapper.xml
 
