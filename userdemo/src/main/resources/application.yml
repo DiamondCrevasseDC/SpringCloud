@@ -31,6 +31,16 @@ eureka:
   client:
     service-url:
       default-zone: http://127.0.0.1:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #beans,health
+  endpoint:
+    health:
+      show-details: always
+    shutdown: #post请求
+      enabled: true
 
 ---
 spring:
