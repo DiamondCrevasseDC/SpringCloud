@@ -1,5 +1,11 @@
+spring:
+  profiles:
+    active: dev
+
 ---
 spring:
+  profiles: dev
+
   datasource:
     name: mydb
     type: com.alibaba.druid.pool.DruidDataSource
@@ -9,7 +15,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
   application:
-    name: userdemo #注册的id
+    name: userdemo #服务名以及注册时的id
 
 mybatis:
   mapperLocations: classpath*:mybatis/*Mapper.xml
@@ -26,3 +32,28 @@ eureka:
     service-url:
       default-zone: http://127.0.0.1:8761/eureka/
 
+---
+spring:
+  profiles: test
+
+  datasource:
+    name: mydb
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+  application:
+    name: userdemo
+
+mybatis:
+  mapperLocations: classpath*:mybatis/*Mapper.xml
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  tomcat:
+    max-threads: 800
+    uri-encoding: UTF-8
