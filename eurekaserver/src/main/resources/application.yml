@@ -4,8 +4,8 @@ eureka:
   instance:
     hostname: 127.0.0.1
   client:
-    register-with-eureka: false #表示是不是client,防止服务端将自己注册成客户端
-    fetch-registry: false #表示是不是client,防止服务端将自己注册成客户端
+    register-with-eureka: false #表示不向注册中心注册自己,防止服务端将自己注册成客户端
+    fetch-registry: false #不是客户端,不需要去检索服务
     service-url:
       default-zone: http://127.0.0.1:8761/eureka/
 
