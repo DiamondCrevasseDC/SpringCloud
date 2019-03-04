@@ -39,7 +39,7 @@ public class ContactController {
     @ResponseBody
     public Map<String, Object> failed(){
         Map<String, Object> results = new HashMap<String, Object>(16);
-        results.put("msg", "无效的url!");
+        results.put("msg", "无效的Url!");
         results.put("status", 0);
         return results;
     }
