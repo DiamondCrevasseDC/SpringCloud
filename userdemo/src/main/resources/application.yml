@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: test
 
 ---
 spring:
@@ -30,7 +30,7 @@ server:
 eureka:
   client:
     service-url:
-      default-zone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/ #该地址和默认地址一样
 management:
   endpoints:
     web:
@@ -67,3 +67,9 @@ server:
   tomcat:
     max-threads: 800
     uri-encoding: UTF-8
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:2222/eureka/
+  instance:
+    prefer-ip-address: true #允许使用ip访问注册中心

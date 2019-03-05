@@ -7,5 +7,5 @@ eureka:
     register-with-eureka: false #表示不向注册中心注册自己,防止服务端将自己注册成客户端
     fetch-registry: false #不是客户端,不需要去检索服务
     service-url:
-      default-zone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/
 
