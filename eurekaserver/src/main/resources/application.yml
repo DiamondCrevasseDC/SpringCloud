@@ -3,6 +3,8 @@ server:
 eureka:
   instance:
     hostname: 127.0.0.1
+  server:
+    enable-self-preservation: false #关闭保护机制
   client:
     register-with-eureka: false #表示不向注册中心注册自己,防止服务端将自己注册成客户端
     fetch-registry: false #不是客户端,不需要去检索服务
