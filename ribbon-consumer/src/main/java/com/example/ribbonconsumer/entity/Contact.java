@@ -51,4 +51,12 @@ public class Contact {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Contact(long id, String firstName, String lastName, String phone, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+    }
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,17 +56,17 @@ public class ContactController {
 
     @RequestMapping(value = "/findById", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Object> findById(@RequestParam("id") String id){
-        Map<String, Object> results = new HashMap<String, Object>(16);
+    public Contact findById(@RequestParam("id") String id){
+//        Map<String, Object> results = new HashMap<String, Object>(16);
         Contact contact = service.findById(id);
 
-        results.put("data", contact);
-        results.put("status", 1);
-        return results;
+//        results.put("data", contact);
+//        results.put("status", 1);
+        return contact;
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute Contact contact){
+    public String save(@ModelAttribute Contact contact, HttpServletRequest request){
         service.save(contact);
         return "redirect:/contact/index";
     }
