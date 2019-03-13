@@ -1,4 +1,4 @@
-package com.yonyou.userdemo.entity;
+package com.example.ribbonconsumer.entity;
 
 public class Contact {
 

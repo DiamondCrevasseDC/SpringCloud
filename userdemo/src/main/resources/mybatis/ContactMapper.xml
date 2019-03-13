@@ -19,6 +19,12 @@
         from contact
     </select>
 
+    <select id="findById" resultMap="BaseResultMap" parameterType="string">
+        select
+        <include refid="Base_Column_List"/>
+        from contact where id = #{value}
+    </select>
+
     <insert id="save" parameterType="com.yonyou.userdemo.entity.Contact">
         insert into contact(id, first_name, last_name, phone, email)
         values (#{id}, #{firstName}, #{lastName}, #{phone}, #{email})

@@ -20,6 +20,11 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
+    public Contact findById(String id) {
+        return mapper.findById(id);
+    }
+
+    @Override
     public void save(Contact contact) {
         mapper.save(contact);
     }

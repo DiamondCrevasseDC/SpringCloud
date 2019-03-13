@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
@@ -50,6 +51,17 @@ public class ContactController {
         List<Contact> list = service.findAll();
         model.put("list", list);
         return "index";
+    }
+
+    @RequestMapping(value = "/findById", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> findById(@RequestParam("id") String id){
+        Map<String, Object> results = new HashMap<String, Object>(16);
+        Contact contact = service.findById(id);
+
+        results.put("data", contact);
+        results.put("status", 1);
+        return results;
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)

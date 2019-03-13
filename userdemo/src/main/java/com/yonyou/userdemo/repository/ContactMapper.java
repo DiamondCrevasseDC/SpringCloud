@@ -8,4 +8,6 @@ public interface ContactMapper {
     void save(Contact contact);
 
     List<Contact> findAll();
+
+    Contact findById(String id);
 }

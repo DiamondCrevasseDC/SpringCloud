@@ -8,5 +8,7 @@ public interface ContactService {
 
     List<Contact> findAll();
 
+    Contact findById(String id);
+
     void save(Contact contact);
 }

@@ -22,12 +22,14 @@ public class UrlFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String requestUri = request.getRequestURI();
 
-        System.out.println("----------->过滤器:请求地址http://" + request.getRemoteHost()+ ":" + request.getLocalPort() + requestUri);
-        if (requestUri.contains("index") || requestUri.contains("save")){
-            filterChain.doFilter(servletRequest, servletResponse);
-        }else{
-            servletRequest.getRequestDispatcher("/contact/failed").forward(servletRequest, servletResponse);
-        }
+//        System.out.println("----------->过滤器:请求地址http://" + request.getRemoteHost()+ ":" + request.getLocalPort() + requestUri);
+//        if (requestUri.contains("index") || requestUri.contains("save")){
+//            filterChain.doFilter(servletRequest, servletResponse);
+//        }else{
+//            servletRequest.getRequestDispatcher("/contact/failed").forward(servletRequest, servletResponse);
+//        }
+
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
