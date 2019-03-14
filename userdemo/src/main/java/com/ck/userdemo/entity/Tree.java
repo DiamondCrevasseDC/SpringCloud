@@ -43,4 +43,10 @@ public class Tree {
     public void setChildrenTree(List<Tree> childrenTree) {
         this.childrenTree = childrenTree;
     }
+
+    public Tree(String id, String name, String parentId) {
+        this.id = id;
+        this.name = name;
+        this.parentId = parentId;
+    }
 }
