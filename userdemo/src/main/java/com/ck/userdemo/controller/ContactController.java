@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.serviceregistry.Registration;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +41,12 @@ public class ContactController {
 
     @Autowired
     private ContactService service;
+
+    @Autowired
+    RedisConnectionFactory factory;
+
+    @Autowired
+    RedisTemplate<String, Object> template;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(Map<String, Object> model){
@@ -99,5 +108,22 @@ public class ContactController {
         return results;
     }
 
+    @RequestMapping(value = "/redisTest", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> redisTest(){
+        Map<String, Object> results = new HashMap<String, Object>(16);
+        RedisConnection conn = factory.getConnection();
+        conn.set("hello".getBytes(), "world".getBytes());
+        results.put("data", new String(conn.get("hello".getBytes())));
+        return results;
+    }
 
+    @RequestMapping(value = "/redisTemplateTest", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> redisTemplateTest(){
+        Map<String, Object> results = new HashMap<String, Object>(16);
+        template.opsForValue().set("Sheryl", "Nome");
+        results.put("data", template.opsForValue().get("Sheryl"));
+        return results;
+    }
 }
