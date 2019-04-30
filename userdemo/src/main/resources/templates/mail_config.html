@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot Contacts</title>
+    <link rel="stylesheet"  th:href="@{/style.css}"/>
+</head>
+<body>
+    <div id="save" align="center">
+        <h2>Spring Boot Contacts</h2>
+
+        <form method="post" action="/contact/save">
+            <label for="htmlTemplate">HtmlTemplate:</label>
+            <input type="text" name="htmlTemplate" /><br/>
+            <label for="recipientXml">收件人XML文件:</label>
+            <input type="text" name="recipientXml" /><br/>
+            <label for="templateDate">模板日期:</label>
+            <input type="text" name="templateDate" /><br/><br/>
+            <label for="smtpHost">smtp服务器地址:</label>
+            <input type="text" name="smtpHost" /><br/>
+            <label for="user">邮箱域名:</label>
+            <input type="text" name="user" /><br/>
+            <label for="password">smtp授权码:</label>
+            <input type="password" name="password" /><br/>
+            <label for="from">发件人邮箱:</label>
+            <input type="text" name="from" /><br/>
+            <input type="submit"/>
+        </form>
+    </div>
+
+</body>
+</html>
