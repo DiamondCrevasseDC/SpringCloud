@@ -7,8 +7,8 @@ spring:
       server:
         git:
           uri: https://github.com/DiamondCrevasseDC/SpringCloud
-          username: 601475403@qq.com
-          password: zzuck020202
+          username: ***
+          password: ***
 
   application:
     name: config-server
