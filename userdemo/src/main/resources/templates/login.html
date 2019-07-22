@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot Contacts</title>
+    <link rel="stylesheet"  th:href="@{/style.css}"/>
+</head>
+<body>
+<div id="save" align="center">
+    <h2>登录</h2>
+
+    <form method="post" action="/user/login">
+        <label>Username:</label>
+        <input type="text" name="username" />
+        <br/>
+        <label>Password:</label>
+        <input type="password" name="password" />
+        <br/>
+        <!--<font color="red">${requestScope.message}</font><br/>-->
+        <input type="submit"/>
+    </form>
+</div>
+</body>
+</html>
